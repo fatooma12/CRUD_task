@@ -27,14 +27,16 @@
         <td>{{$item->address}}</td>
         <td>{{$item->phone}}</td>
         <td>
-        <a href="{{url('/trainner/'.$item->id)}}" class="btn btn-info" title="view info">View</a> 
-        <a href="{{url('/trainner/'.$item->id.'/edit')}}" class="btn btn-primary" title="Edit info">Edit</a>
+        <div style="display:flex;gap:10px;">
+        <a href="{{url('/trainner/'.$item->id)}}" class="btn btn-info" title="view info"><i class="bi bi-eye"></i>View</a> 
+        <a href="{{url('/trainner/'.$item->id.'/edit')}}" class="btn btn-primary" title="Edit info"><i class="bi bi-pencil"></i>Edit</a>
         <form action="{{url('/trainner'.'/'.$item->id)}}" method="POST">
         {{@method_field('DELETE')}}
         {{@csrf_field()}}
-        <button type="submit" style="display:inline;" class="btn btn-danger" onclick="return confirm('Confirm Deleted')">Delete</button>
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Confirm Deleted')"><i class="bi bi-dash-circle-fill"></i>Delete</button>
         </form>
         </td>
+        </div>
 
     </tr>
     @endforeach
